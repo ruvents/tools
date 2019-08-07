@@ -10,10 +10,6 @@ func MakeStringFromUINT16(number uint16) string {
 	return strconv.FormatUint(uint64(number), 10)
 }
 
-func MakeStringFromUINT16(number uint16) string {
-	return strconv.FormatUint(uint64(number), 10)
-}
-
 func MakeStringFromUINT32(number uint32) string {
 	return strconv.FormatUint(uint64(number), 10)
 }
