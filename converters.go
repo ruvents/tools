@@ -10,6 +10,10 @@ func MakeStringFromUINT16(number uint16) string {
 	return strconv.FormatUint(uint64(number), 10)
 }
 
+func MakeStringFromUINT16(number uint16) string {
+	return strconv.FormatUint(uint64(number), 10)
+}
+
 func MakeStringFromUINT32(number uint32) string {
 	return strconv.FormatUint(uint64(number), 10)
 }
@@ -46,12 +50,22 @@ func MakeUINT64FromString(number string) uint64 {
 	}
 }
 
+func MakeUINT64FromStringUnsafe(number string) (uint64, error) {
+	result, err := strconv.ParseInt(number, 10, 64)
+	return uint64(result), err
+}
+
 func MakeUINT32FromString(number string) uint32 {
 	if result, err := strconv.Atoi(number); err == nil {
 		return uint32(result)
 	} else {
 		return 0
 	}
+}
+
+func MakeUINT32FromStringUnsafe(number string) (uint32, error) {
+	result, err := strconv.Atoi(number)
+	return uint32(result), err
 }
 
 func MakeUINT16FromString(number string) uint16 {
@@ -62,10 +76,35 @@ func MakeUINT16FromString(number string) uint16 {
 	}
 }
 
+func MakeUINT16FromStringUnsafe(number string) (uint16, error) {
+	result, err := strconv.Atoi(number)
+	return uint16(result), err
+}
+
 func MakeUINT8FromString(number string) uint8 {
 	if result, err := strconv.Atoi(number); err == nil {
 		return uint8(result)
 	} else {
 		return 0
 	}
+}
+
+func MakeUINT8FromStringUnsafe(number string) (uint8, error) {
+	result, err := strconv.Atoi(number)
+	return uint8(result), err
+}
+
+func MakeUINT32FromHEX(str string) (uint32, error) {
+	res, err := strconv.ParseInt(str, 16, 32)
+	return uint32(res), err
+}
+
+func MakeUINT16FromHEX(str string) (uint16, error) {
+	res, err := strconv.ParseInt(str, 16, 32)
+	return uint16(res), err
+}
+
+func MakeUINT8FromHEX(str string) (uint8, error) {
+	res, err := strconv.ParseInt(str, 16, 32)
+	return uint8(res), err
 }
