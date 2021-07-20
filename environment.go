@@ -5,6 +5,14 @@ import (
 	"strconv"
 )
 
+func GetRequiredEnvString(key string) string {
+	value, found := syscall.Getenv(key); /**/ if !found {
+		log.Fatalf("Переменная системного окружения «%s» не определена!", key)
+	}
+
+	return value
+}
+
 func GetEnvString(key, defaultValue string) string {
 	if value, found := syscall.Getenv(key); !found {
 		return defaultValue
