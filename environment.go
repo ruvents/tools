@@ -3,6 +3,7 @@ package tools
 import (
 	"syscall"
 	"strconv"
+	"github.com/apex/log"
 )
 
 func GetRequiredEnvString(key string) string {
